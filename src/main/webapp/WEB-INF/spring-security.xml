@@ -9,15 +9,15 @@
     <http auto-config="true">
         <intercept-url pattern="/user/*" access="ROLE_관리자" />
         <form-login
-            login-page="/home/login.do" 
-            login-processing-url="/home/login_processing.do"
-            authentication-failure-url="/home/login.do?error"
+            login-page="/member/login.do" 
+            login-processing-url="/member/login_processing.do"
+            authentication-failure-url="/member/login.do?error"
             default-target-url="/home/index.do"
             username-parameter="loginId"
             password-parameter="password" />
         <logout
-            logout-url="/home/logout.do"
-            logout-success-url="/home/login.do"
+            logout-url="/member/logout.do"
+            logout-success-url="/member/login.do"
             invalidate-session="true" />
     </http>
 
