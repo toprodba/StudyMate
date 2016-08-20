@@ -11,7 +11,7 @@
     </select>
 
 
-    <select id="selectByEmail" resultType="bbs1.dto.User">
+    <select id="selectByEmail" resultType="studyMate.dto.User">
         <![CDATA[
     		SELECT * FROM [User] WHERE [email] = #{email}
     	]]>

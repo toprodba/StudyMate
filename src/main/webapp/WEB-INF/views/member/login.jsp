@@ -2,13 +2,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <title>Study Mate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="../../resources/bootstrap1/simplex/bootstrap.css" media="screen">
+    
+    <link rel="stylesheet" href="/StudyMate/resources/bootstrap1/simplex/bootstrap.css" media="screen">
     <link rel="stylesheet" href="../../resources/bootstrap1/assets/css/custom.min.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -51,7 +51,7 @@
           
           <div class="col-lg-4 col-lg-offset-1">
 
-              <form class="bs-component">
+              <form class="bs-component" method="post" action="/StudyMate/member/login_process.do">
                
                 <div class="form-group">
                   <label class="control-label" for="inputDefault">ID</label>

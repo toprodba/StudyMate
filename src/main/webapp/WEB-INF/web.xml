@@ -83,6 +83,6 @@
 
 	<!-- 웹서버에서 기본으로 실행되는 URL을 지정.   -->
 	<welcome-file-list>
-		<welcome-file>/member/main.do</welcome-file>
+		<welcome-file>/member/login.do</welcome-file>
 	</welcome-file-list>
 </web-app>

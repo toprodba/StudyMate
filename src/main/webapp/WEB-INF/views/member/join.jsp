@@ -7,9 +7,9 @@
     <meta charset="utf-8">
     <title>Study Mate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="../../resources/bootstrap1/simplex/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="../../resources/bootstrap1/assets/css/custom.min.css">
+    
+    <link rel="stylesheet" href="../../../resources/bootstrap1/simplex/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="../../../resources/bootstrap1/assets/css/custom.min.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
