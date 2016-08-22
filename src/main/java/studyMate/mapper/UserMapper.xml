@@ -20,7 +20,7 @@
    
     <insert id="insert" useGeneratedKeys="true" keyProperty="idx">
         INSERT [User] ([loginId], [name], [password], [email], [phoneNumber], [userType])
-        VALUES (#{loginId}, #{name}, #{password}, #{email}, #{phoneNumber}, #{userType})
+        VALUES (#{loginId}, #{name}, #{password}, #{email}, #{phoneNumber}, '회원')
     </insert>
 
     <update id="update">
@@ -31,7 +31,7 @@
         WHERE idx = #{idx}
     </update>
 
-    <delete id="delete">
+    <delete id="deleteByIdx">
         DELETE FROM [User] WHERE idx = #{idx}
     </delete>
 

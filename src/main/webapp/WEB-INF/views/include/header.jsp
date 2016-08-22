@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta  http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,11 +9,7 @@
     
     <link rel="stylesheet" href="/StudyMate/resources/bootstrap1/simplex/bootstrap.css" media="screen">
     <link rel="stylesheet" href="../../resources/bootstrap1/assets/css/custom.min.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
-      <script src="../bower_components/respond/dest/respond.min.js"></script>
-    <![endif]-->
+    
     <script>
 
      var _gaq = _gaq || [];
@@ -34,7 +30,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="../" class="navbar-brand">StudyMate</a>
+          <a href="#" class="navbar-brand">StudyMate</a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
