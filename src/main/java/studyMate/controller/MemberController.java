@@ -20,10 +20,12 @@ public class MemberController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(value = "/member/user/main.do")
+	/*@RequestMapping(value = "/member/user/main.do")
+	@RequestMapping(value = "/member/user/myPage.do")
 	public String main(Model model){
 		return "member/user/main";
-	}
+		return "member/user/myPage";
+	}*/
 	
 	@RequestMapping(value = "/member/login.do", method = RequestMethod.GET)
 	public String login(Model model){
@@ -52,15 +54,16 @@ public class MemberController {
 	}
 	
 	//회원정보 수정
-	@RequestMapping(value = "/member/user/myProfile.do", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/member/user/myProfile.do", method = RequestMethod.GET)*/
+	@RequestMapping(value = "/member/user/myInfoModify.do", method = RequestMethod.GET)
 	public String myProfile(Model model){
 		//UserService 클래스의 static 메소드로 현재 세션에 있는(로그인 한) User를 꺼내는 메소드
 		model.addAttribute("user", UserService.getCurrentUser());
 		
-		return "member/user/myProfile";
+		return "member/user/myInfoModify";
 	}
 	
-	@RequestMapping(value = "/member/user/myProfile.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/member/user/myInfoModify.do", method = RequestMethod.POST)
 	public String myProfile(Model model, User user){
 		
 		String message = userService.userValidateBeforeUpdate(user);
@@ -75,7 +78,7 @@ public class MemberController {
 			model.addAttribute("error", message);
 		}
 		
-		return "member/user/myProfile";
+		return "member/user/myInfoModify";
 	}
 	
 	//회원 탈퇴
@@ -101,4 +104,31 @@ public class MemberController {
 		}
 		
 	}
+	
+	@RequestMapping(value = "/member/user/findId.do", method = RequestMethod.GET)
+	public String test1(){
+		return "member/user/findId";
+	}
+	@RequestMapping(value = "/member/user/findPw.do", method = RequestMethod.GET)
+	public String test2(){
+		return "member/user/findPw";
+	}
+	@RequestMapping(value = "/member/user/mySchedule.do", method = RequestMethod.GET)
+	public String test3(){
+		return "member/user/mySchedule";
+	}
+	@RequestMapping(value = "/studyMain/studyList.do", method = RequestMethod.GET)
+	public String test4(){
+		return "studyMain/studyList";
+	}
+	@RequestMapping(value = "/studyRoom/board/boardList.do", method = RequestMethod.GET)
+	public String test5(){
+		return "studyRoom/board/boardList";
+	}
+	@RequestMapping(value = "/member/user/myPage.do", method = RequestMethod.GET)
+	public String test6(){
+		return "member/user/myPage";
+	}
+	
+	
 }
