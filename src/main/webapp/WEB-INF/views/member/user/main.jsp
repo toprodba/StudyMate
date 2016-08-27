@@ -13,5 +13,6 @@
 <body>
 	<a href="/StudyMate/member/user/myProfile.do" >회원정보수정</a>
 	<a href="/StudyMate/member/user/unregister.do">회원 탈퇴</a>
+	<a href="/StudyMate/member/user/concurrentDocumentWrite.do">동시 문서 작성</a>
 </body>
 </html>
