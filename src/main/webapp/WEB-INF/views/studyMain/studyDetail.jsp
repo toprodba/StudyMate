@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="../include/header1.jsp" %>
   
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
   
+
    <!-- 신청 Forms ================================================== -->
       
    <div class="container">
@@ -11,7 +13,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h1 id="forms">application form</h1>
+              <h1 id="forms">study group 상세보기</h1>
             </div>
           </div>
         </div>
@@ -19,46 +21,47 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="well bs-component">
-              <form class="form-horizontal">
+              <form:form class="form-horizontal" modelAttribute="studyGroup">  
+              
                 <fieldset>
-                  <legend>스터디 상세보긴</legend>
+                  <legend>${studyGroup.studyGroupName}</legend>
                   
                    <div class="form-group">
                     <label for="inputEmail" class="col-lg-2 control-label">조장</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="leader" value="" readonly >
+                      <form:input path="leaderId" class="form-control" readonly="true" />
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="inputEmail" class="col-lg-2 control-label">인원</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="count" value="" readonly>
+                      <form:input path="maxCounter" class="form-control" readonly="true" />
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="textArea" class="col-lg-2 control-label">내용</label>
                     <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" id="contents" readonly></textarea>           
+                      <form:textarea path="studyGroupContents"  class="form-control" rows="3" readonly="true"></form:textarea>           
                     </div>
                   </div>
                   
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">인원</label>
+                    <label for="inputEmail" class="col-lg-2 control-label">내용</label>
                     <div class="col-lg-10">
-                      <input type="text" class="form-control" id="count" value="" readonly>
+                      <form:input  path="studyGroupGoal" type="text" class="form-control" id="count" value="" readonly="true" />
                     </div>
                   </div>
               
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                       <button type="reset" onclick="page_back();" class="btn btn-default">돌아가기</button>
-                      <a href="applicationForm.jsp" class="btn btn-primary">가입하기</a>
+                      <a href="applicationForm.do?idx=${studyGroup.idx}" class="btn btn-primary">가입하기</a>
                     </div>
                   </div>
                 </fieldset>
-              </form>
+              </form:form>
             </div>
           </div>
           </div>

@@ -117,10 +117,6 @@ public class MemberController {
 	public String test3(){
 		return "member/user/mySchedule";
 	}
-	@RequestMapping(value = "/studyMain/studyList.do", method = RequestMethod.GET)
-	public String test4(){
-		return "studyMain/studyList";
-	}
 	@RequestMapping(value = "/studyRoom/board/boardList.do", method = RequestMethod.GET)
 	public String test5(){
 		return "studyRoom/board/boardList";
@@ -129,6 +125,6 @@ public class MemberController {
 	public String test6(){
 		return "member/user/myPage";
 	}
-	
+
 	
 }

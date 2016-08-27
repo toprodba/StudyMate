@@ -3,6 +3,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="../include/header1.jsp" %>
 
+
+<style type="text/css">
+  .click:hover { background-color: #ffa; cursor: pointer; }
+</style>
+
+<script>
+	function go(idx){
+		location.href = "studyDetail.do?idx="+idx;  //스터디 상세보기 페이지로 이동.
+	}
+</script>
+      
       
    <div class="container">
    
@@ -27,24 +38,22 @@
                   <tr>
 					<th>No.</th>
                     <th>조장</th>
+                    <th>스터디 이름</th>
                     <th>스터디 소개</th>
                     <th>활동 기간</th>
                   </tr>
                 </thead>
                 
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
+                 <c:forEach items="${list}" var="StudyGroup">
+	                  <tr class="click" onclick="go(${StudyGroup.idx});">
+	                    <td>${StudyGroup.idx}</td>
+	                    <td>${StudyGroup.leaderId}</td>
+	                    <td>${StudyGroup.studyGroupName}</td>
+	                    <td>${StudyGroup.studyGroupIntro}</td>
+	                     <td>${StudyGroup.studyGroupTerm}</td>
+	                  </tr>
+                  </c:forEach>
                 </tbody>
                 
               </table> 
@@ -100,12 +109,6 @@
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
                     <td>Column content</td>
                     <td>Column content</td>
                     <td>Column content</td>
