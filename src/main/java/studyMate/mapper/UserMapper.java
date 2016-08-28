@@ -10,4 +10,5 @@ public interface UserMapper {
 	void insert(User user);//유저 추가
     void update(User user);//유저 수정
     void deleteByIdx(int idx);//유저 삭제
+    
 }
