@@ -10,6 +10,7 @@ import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
+
 public class MyWebSocketHandler extends TextWebSocketHandler {
 
 	Set<WebSocketSession> sessionSet = new HashSet<WebSocketSession>(); //클라이언트 연결 객체를 보관할 자료구조 객체 (Set)
