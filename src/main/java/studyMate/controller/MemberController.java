@@ -105,6 +105,35 @@ public class MemberController {
 		
 	}
 	
+	
+	
+	@RequestMapping(value = "/member/user/mySchedule.do" , method = RequestMethod.GET)
+	public String mySchedule(){
+		return "member/user/mySchedule";
+	}
+	
+	
+	@RequestMapping(value = "/studyRoom/board/boardList.do", method = RequestMethod.GET)
+	public String boardList(Model model, @RequestParam("idx") String idx){
+		
+		model.addAttribute("idx",idx);
+		
+		return "studyRoom/board/boardList";
+	}
+	
+	@RequestMapping(value = "/studyRoom/fileShare/fileShare.do", method = RequestMethod.GET)
+	public String test7(){
+		return "studyRoom/fileShare/fileShare";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value = "/member/user/findId.do", method = RequestMethod.GET)
 	public String test1(){
 		return "member/user/findId";
@@ -113,14 +142,9 @@ public class MemberController {
 	public String test2(){
 		return "member/user/findPw";
 	}
-	@RequestMapping(value = "/member/user/mySchedule.do", method = RequestMethod.GET)
-	public String test3(){
-		return "member/user/mySchedule";
-	}
-	@RequestMapping(value = "/studyRoom/board/boardList.do", method = RequestMethod.GET)
-	public String test5(){
-		return "studyRoom/board/boardList";
-	}
+	
+	
+	
 	@RequestMapping(value = "/member/user/myPage.do", method = RequestMethod.GET)
 	public String test6(){
 		return "member/user/myPage";

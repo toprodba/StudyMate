@@ -2,7 +2,8 @@ package studyMate.dto;
 
 public class StudyGroup {
 	int idx;
-	String leaderId;
+	int leaderIdx;
+	String leaderName;
 	String studyGroupName;
 	int memberCounter;
 	int maxCounter;
@@ -17,11 +18,19 @@ public class StudyGroup {
 	public void setIdx(int idx) {
 		this.idx = idx;
 	}
-	public String getLeaderId() {
-		return leaderId;
+	public int getLeaderIdx() {
+		return leaderIdx;
 	}
-	public void setLeaderId(String leaderId) {
-		this.leaderId = leaderId;
+	public void setLeaderIdx(int leaderIdx) {
+		this.leaderIdx = leaderIdx;
+	}
+	
+	public String getLeaderName(){
+		return leaderName;
+	}
+	
+	public void setLeaderName(String leaderName){
+		this.leaderName = leaderName;
 	}
 	public String getStudyGroupName() {
 		return studyGroupName;

@@ -10,13 +10,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="fileShare.jsp">
+                    <a href="/StudyMate/studyRoom/fileShare/fileUpload.do?idx=${idx}">
                         <i class="ti-cloud-up"></i>
                         <p>자료공유</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="boardList.jsp">
+                    <a href="boardList.jsp?idx=${idx}">
                         <i class="ti-view-list-alt"></i>
                         <p>게시판</p>
                     </a>

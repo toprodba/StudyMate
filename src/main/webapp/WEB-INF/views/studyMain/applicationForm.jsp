@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="../include/header1.jsp" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
   
   
    <!-- Forms ================================================== -->
@@ -18,29 +22,17 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="well bs-component">
-              <form class="form-horizontal">
+              <form:form method="post" class="form-horizontal" modelAttribute="applicationForm">
                 <fieldset>
                   <legend>신청서 작성</legend>
+                  <form:input type="hidden" path="userIdx" value="${user.idx}" />
+                  <form:input type="hidden" path="studyGroupIdx" value="${studyGroup.idx}" />
                   
-                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">이름</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputName" placeholder="Email">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">email</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
-                  </div>
-
                   <div class="form-group">
                     <label for="textArea" class="col-lg-2 control-label">사유</label>
                     <div class="col-lg-10">
-                      <textarea class="form-control" rows="3" id="inputReason"></textarea>
-                      <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                      <form:input path="reason" class="form-control" rows="5" />
+                      <span class="help-block">스터디 조장의 승인/반려 과정을 통해 가입이 진행됩니다.</span>
                     </div>
                   </div>
               
@@ -51,11 +43,21 @@
                     </div>
                   </div>
                 </fieldset>
-              </form>
+                
+              </form:form>
             </div>
           </div>
           </div>
           </div>
+          
+     <div>
+     		<c:if test="${ not empty error }">
+				<div class="alert alert-error">${ error }</div>
+			</c:if>
+			<c:if test="${ not empty success }">
+				<div class="alert alert-success">${ success }</div>
+			</c:if>
+	</div>
           
       </div>
       

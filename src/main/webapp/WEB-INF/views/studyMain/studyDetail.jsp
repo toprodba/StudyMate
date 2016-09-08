@@ -56,7 +56,7 @@
               
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                      <button type="reset" onclick="page_back();" class="btn btn-default">돌아가기</button>
+                      <a href="studyList.do" class="btn btn-default">돌아가기</a> 
                       <a href="applicationForm.do?idx=${studyGroup.idx}" class="btn btn-primary">가입하기</a>
                     </div>
                   </div>
@@ -66,6 +66,15 @@
           </div>
           </div>
           </div>
+          
+           <div>
+	     		<c:if test="${ not empty error }">
+					<div class="alert alert-error">${ error }</div>
+				</c:if>
+				<c:if test="${ not empty success }">
+					<div class="alert alert-success">${ success }</div>
+				</c:if>
+	      </div>
           
       </div>
       

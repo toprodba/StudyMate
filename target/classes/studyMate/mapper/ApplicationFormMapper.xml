@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="studyMate.mapper.ApplicationFormMapper">
+
+    <select id="selectCountApplicationForm" resultType="studyMate.dto.ApplicationForm">
+        <![CDATA[
+    		SELECT COUNT(*)
+    		FROM StudyMate.dbo.[ApplicationForm]
+    		WHERE studyGroupIdx = #{studyGroupIdx}
+    	]]>
+    </select>
+
+
+    <select id="selectPage" resultType="studyMate.dto.ApplicationForm">
+        <![CDATA[
+    		SELECT * 
+    		FROM
+    			( SELECT u.name as userName, a.reason as reason, a.idx as 행번호
+    			  FROM StudyMate.dbo.[User] u JOIN StudyMate.dbo.[Application] a ON u.idx = a.userIdx
+    			) subquery
+    		WHERE studyGroupIdx = #{studyGroupIdx} AND 
+    				행번호 > (#{currentPage} - 1) * #{pageSize} AND
+              		행번호 <= #{currentPage} * #{pageSize} 
+        	ORDER BY 행번호
+    	]]>
+    </select>
+
+   
+   
+</mapper>
+

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UserSchedule {
 	int idx;
+	String event_name;
 	int userIdx;
 	Date startDate;
 	Date endDate;
@@ -14,6 +15,12 @@ public class UserSchedule {
 	}
 	public void setIdx(int idx) {
 		this.idx = idx;
+	}
+	public String getEvent_name(){
+		return event_name;
+	}
+	public void setEvent_name(String event_name){
+		this.event_name = event_name;
 	}
 	public int getUserIdx() {
 		return userIdx;

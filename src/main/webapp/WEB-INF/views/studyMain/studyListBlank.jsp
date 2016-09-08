@@ -27,7 +27,7 @@
               <h1 id="tables">Study List</h1>
               <br/>
               <h3>추천 스터디 목록</h3>
-              <a href="studyCreate.jsp" class="btn btn-primary col-xs-offset-10">create study</a>  
+              <a href="studyCreate.do" class="btn btn-primary col-xs-offset-10">create study</a>  
             </div>
             
 
@@ -101,18 +101,22 @@
                   <tr>
 					<th>No.</th>
                     <th>조장</th>
+                    <th>스터디 이름</th>
                     <th>스터디 소개</th>
                     <th>활동 기간</th>
                   </tr>
                 </thead>
                 
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
+                  <c:forEach items="${standByList}" var="StudyGroup">
+	                  <tr class="click" onclick="go(${StudyGroup.idx});">
+	                    <td>${StudyGroup.idx}</td>
+	                    <td>${StudyGroup.leaderId}</td>
+	                    <td>${StudyGroup.studyGroupName}</td>
+	                    <td>${StudyGroup.studyGroupIntro}</td>
+	                     <td>${StudyGroup.studyGroupTerm}</td>
+	                  </tr>
+                  </c:forEach>
                 </tbody>
                 
               </table> 

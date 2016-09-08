@@ -1,153 +1,157 @@
-<!-- 로그인 -> 가입한 스터디가 하나라도 있을 때  -->
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="../include/header1.jsp" %>
-
+<%@ include file="../include/header1.jsp"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style type="text/css">
-  .click:hover { background-color: #ffa; cursor: pointer; }
-</style>
-
-<script>
-function go(idx){
-	location.href = "/StudyMate/studyRoom/board/boardList.do";   //스터디방으로 가야함.
+.click:hover {
+	background-color: #ffa;
+	cursor: pointer;
 }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(function() {
+    $("tr[data-url]").click(function() {
+        location.href = $(this).attr("data-url");
+    });
+
+    $("div.pagination a").click(function() {
+        $("input[name=pg]").val($(this).attr("data-page"));
+        $("form").submit();
+    });
+
+    $("[data-auto-submit=true]").change(function() {
+        $(this).parents("form").submit();
+    });
+
+});
+
 </script>
 
-      
-   <div class="container">
-   
-      <!-- 스터디 리스트 Table ================================================== -->
 
-      <div class="bs-docs-section">
+<div class="container">
 
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="page-header">
-              <h1 id="tables">Study List</h1>
-              <br/>
-              <h3>가입된 스터디</h3>
-              <a href="studyCreate.jsp" class="btn btn-primary col-xs-offset-10">create study</a>  
-            </div>
-            
+	<!-- 스터디 리스트 Table ================================================== -->
 
-            <div class="bs-component">
-              <table class="table table-striped table-hover ">
-              
-                <thead>
-                  <tr>
-					<th>No.</th>
-                    <th>조장</th>
-                    <th>스터디 이름</th>
-                    <th>스터디 소개</th>
-                    <th>활동 기간</th>
-                  </tr>
-                </thead>
-                
-                <tbody>
-                  <c:forEach items="${list}" var="StudyGroup">
-	                  <tr class="click" onclick="go(${StudyGroup.idx});">   
-	                    <td>${StudyGroup.idx}</td>
-	                    <td>${StudyGroup.leaderId}</td>
-	                    <td>${StudyGroup.studyGroupName}</td>
-	                    <td>${StudyGroup.studyGroupIntro}</td>
-	                     <td>${StudyGroup.studyGroupTerm}</td>
-	                  </tr>
-                  </c:forEach>              
-                </tbody>
-                
-              </table> 
-            </div>
-          </div>
-        </div>
-        
-        
-        <!-- ================== pagination ================== -->
-         <div class="row col-xs-offset-4">
-          <div class="col-lg-4">
-            <div class="bs-component">
-              <ul class="pagination pagination-sm">
-                <li class="disabled"><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-              </ul>
-            </div>
-          </div> 
-      </div> 
-      
-      
-    </div>
-    
-    
-     <!-- 승인대기중 스터디 리스트 Table ================================================== -->
-    
-        <div class="bs-docs-section">
+	<div class="bs-docs-section">
 
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="page-header">
-              <h3 id="tables">승인 대기중 . . .</h3>
-            </div>
-            
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="page-header">
+					<h1 id="tables">Study List</h1>
+					<br />
+					
+					<a href="/StudyMate/studyMain/studyCreate.do"
+						class="btn btn-primary col-xs-offset-10">create study</a>
+				</div>
+			</div>
+		</div>
 
-            <div class="bs-component">
-              <table class="table table-striped table-hover ">
-              
-                <thead>
-                  <tr>
-					<th>No.</th>
-                    <th>조장</th>
-                    <th>스터디 소개</th>
-                    <th>활동 기간</th>
-                  </tr>
-                </thead>
-                
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                  </tr>
-                </tbody>
-                
-              </table> 
-            </div>
-          </div>
-        </div>
-        
-        
-        <!-- ================== pagination ================== -->
-         <div class="row col-xs-offset-4">
-          <div class="col-lg-4">
-            <div class="bs-component">
-              <ul class="pagination pagination-sm">
-                <li class="disabled"><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-              </ul>
-            </div>
-          </div> 
-      </div> 
-     
-    </div>
-    
-    
-    
-  </div>
-  
-<%@ include file="../include/footer1.jsp" %>
-  
+		<form:form method="get">
+			<!-- <input type="hidden" name="pg" value="1" /> -->
+			<div class="bs-component">
+
+				<%-- <form:select path="ss">
+					<form:option value="0" label="전체보기" />
+					<form:option value="1" label="스터디 이름 검색" />
+					<form:option value="2" label="스터디 소개글 검색" />
+					<form:option value="3" label="스터디 목표 검색" />
+				</form:select>
+				<form:input path="st" />
+				<button type="submit" class="btn btn-small" style="height: 30px">검색</button>
+				<c:if test="${ pagination.ss != 0 }">
+					<a href="studyList.do" class="btn btn-small">취소</a>
+				</c:if>
+				<form:select path="od" data-auto-submit="true">
+					<form:option value="0" label="생성 순서" />
+					<form:option value="1" label="스터디 이름 순서" />
+				</form:select>
+
+				<form:select path="sz" data-auto-submit="true">
+					<form:option value="10" />
+					<form:option value="15" />
+					<form:option value="30" />
+					<form:option value="50" />
+				</form:select> --%>
+				<table class="table table-striped table-hover ">
+					<thead>
+						<tr>
+							<th>조장</th>
+							<th>스터디 이름</th>
+							<th>스터디 소개</th>
+							<th>활동 기간</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<c:forEach var="studyGroup" items="${list}">
+							<!-- <tr data-url="/StudyMate/studyMain/applicationForm.do?idx=${studyGroup.idx}"> -->
+								<tr data-url="/StudyMate/studyRoom/board/boardList.do?idx=${ studyGroup.idx }">
+								<td>${studyGroup.leaderName}</td>
+								<td>${studyGroup.studyGroupName}</td>
+								<td>${studyGroup.studyGroupIntro}</td>
+								<td>${studyGroup.studyGroupTerm}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+
+				</table>
+			</div>
+
+			<!-- pagination -->
+			<div class="pagination pagination-small pagination-centered">
+				<ul>
+					<c:forEach var="page" items="${ pages }">
+						<li class='${ page.active }'><a
+							href="/StudyMate/studyMain/studyList.do?pg=${ page.number }">${ page.label }</a></li>
+					</c:forEach>
+				</ul>
+			</div>
+
+		</form:form>
+	</div>
+</div>
+
+
+<!-- 승인대기중 스터디 리스트 Table ================================================== -->
+
+<%-- <div class="bs-docs-section">
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="page-header">
+					<h3 id="tables">승인 대기중 . . .</h3>
+				</div>
+
+
+				<div class="bs-component">
+					<table class="table table-striped table-hover ">
+
+						<thead>
+							<tr>
+								<th>No.</th>
+								<th>조장</th>
+								<th>스터디 소개</th>
+								<th>활동 기간</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<c:forEach items="${standByList}" var="StudyGroup">
+								<tr class="click" onclick="goDetail(${StudyGroup.idx});">
+									<td>${StudyGroup.idx}</td>
+									<td>${StudyGroup.leaderId}</td>
+									<td>${StudyGroup.studyGroupName}</td>
+									<td>${StudyGroup.studyGroupIntro}</td>
+									<td>${StudyGroup.studyGroupTerm}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div> --%>
+
+
+<%@ include file="../include/footer1.jsp"%>

@@ -1,6 +1,4 @@
 Manifest-Version: 1.0
-Built-By: CE-Z950-16
-Build-Jdk: 1.8.0_101
 Built-By: SeungIl
 Build-Jdk: 1.8.0_73
 Created-By: Maven Integration for Eclipse

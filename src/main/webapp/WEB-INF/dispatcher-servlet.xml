@@ -24,6 +24,7 @@
 
     <!--컨트롤러 클래스들(controller class)이 위치할 패키지를 지정. -->
 	<context:component-scan base-package="studyMate" />
+	<mvc:annotation-driven />
 	<sec:global-method-security secured-annotations="enabled" />
 	
 	<!--뷰(view) 파일들이 위치할 폴더를 지정.-->
@@ -71,9 +72,16 @@
 
 
 	<!-- 파일  업로드 -->
-	<bean id="multipartResolver"
+	<!-- <bean id="multipartResolver"
 		  class="org.springframework.web.multipart.support.StandardServletMultipartResolver" >
-	</bean>
+	</bean> -->
+	<bean id="multipartResolver"
+       		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- max upload size in bytes -->
+        <property name="maxUploadSize" value="20971520" /> <!-- 20MB -->
+        <!-- max size of file in memory (in bytes) -->
+        <property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
+    </bean>
 
 	
 	

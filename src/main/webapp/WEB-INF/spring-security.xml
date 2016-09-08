@@ -12,7 +12,7 @@
             login-page="/member/login.do" 
             login-processing-url="/member/login_processing.do"
             authentication-failure-url="/member/login.do?error"
-            default-target-url="/studyMain/studyList.do"
+            default-target-url="/studyMain/studyRecommendList.do"
             username-parameter="loginId"
             password-parameter="password" />
         <logout

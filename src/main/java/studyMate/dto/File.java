@@ -5,7 +5,7 @@ import java.util.Date;
 public class File {
 	int idx;
 	int userIdx;
-	int studyGroupBoardIdx;
+	int studyGroupIdx;
 	String fileName;
 	int fileSize;
 	Date fileTime;
@@ -23,12 +23,14 @@ public class File {
 	public void setUserIdx(int userIdx) {
 		this.userIdx = userIdx;
 	}
-	public int getStudyGroupBoardIdx() {
-		return studyGroupBoardIdx;
+	
+	public int getStudyGroupIdx() {
+		return studyGroupIdx;
 	}
-	public void setStudyGroupBoardIdx(int studyGroupBoardIdx) {
-		this.studyGroupBoardIdx = studyGroupBoardIdx;
+	public void setStudyGroupIdx(int studyGroupIdx) {
+		this.studyGroupIdx = studyGroupIdx;
 	}
+
 	public String getFileName() {
 		return fileName;
 	}
